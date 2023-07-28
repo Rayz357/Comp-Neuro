@@ -12,6 +12,6 @@ My learning progress in Computational Neuroscience
  
   - Inhibitory signals:
   - update model: dVm=−βVm+αI  
-$$\begin{align}I &= I_{\mathrm{exc}} - I_{\mathrm{inh}} \\$$
+$$I &= I_{\mathrm{exc}} - I_{\mathrm{inh}}$$
 I_{\mathrm{exc}} &\sim \mathrm{Poisson}(\lambda_{\mathrm{exc}}) \\
 I_{\mathrm{inh}} &\sim \mathrm{Poisson}(\lambda_{\mathrm{inh}})\end{align}
