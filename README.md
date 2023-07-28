@@ -11,9 +11,9 @@ My learning progress in Computational Neuroscience
   - Inter Spike Intervals: alpha, rate -> number of intervals
  
   - Inhibitory signals:
-  - update model: dVm=−βVm+αI
-\begin{align}
+  - update model: dVm=−βVm+αI  
+$$\begin{align}
 I &= I_{\mathrm{exc}} - I_{\mathrm{inh}} \\
 I_{\mathrm{exc}} &\sim \mathrm{Poisson}(\lambda_{\mathrm{exc}}) \\
 I_{\mathrm{inh}} &\sim \mathrm{Poisson}(\lambda_{\mathrm{inh}})
-\end{align}
+\end{align}$$
