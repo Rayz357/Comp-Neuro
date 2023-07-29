@@ -1,10 +1,10 @@
 # Comp-Neuro
 My learning progress in Computational Neuroscience
 
-7-26:
+# 7-26:
 - Neuromatch: Intro to models - What models
 - what to 
-7-28:
+# 7-28:
 - "How" Models
   - How does a neuron spike? How does the Number of spikes-Inter spike intervals came out?
   - linear integrate-and-fire model neuron
@@ -22,7 +22,7 @@ summary: In this tutorial we gained some intuition for the mechanisms that produ
 Cmd\*dVm/dt=−(Vm−Vrest)/Rm+I  
 - Why model: an optimization problem - to get the biggest information content  
 - if our neuron has a fixed budget, what ISI distribution should it express (all else being equal) to maximize the information content of its outputs?  
-7-29: W1D2 fitting models to data
+# 7-29: W1D2 fitting models to data
   Tutorial 1: Linear regression with MSE  
   minimize  MSE by solving the normal equations using calculus, we find that θ^=x⊤y/x⊤x.  
   (set the derivative of the error expression with respect to  θ  equal to zero)
