@@ -30,5 +30,25 @@ Cmd\*dVm/dt=−(Vm−Vrest)/Rm+I
   - np.means: get mean of matrix calculations(axis=0, 1 , ...)  
   - ndarray tranpose: x.T  
   - ndarray 相乘: x@y  
+
+# 7-30: W1D2 
+## Tutorial 2:  Linear regression with MLE  
+- Learn about probability distributions and probabilistic models
+- Learn how to calculate the likelihood of our model parameters
+- Learn how to implement the maximum likelihood estimator, to find the model parameter with the maximum likelihood  
+Likelihood vs probability:
+L(θ|x,y)=p(y|x,θ)  
+p(y|x,θ)→  "probability of observing the response  y  given parameter  θ  and input  x "  
+L(θ|x,y)→  "likelihood model that parameters  θ  produced response  y  from input  x "
   
-  
+## Tutorial 3:Confidence intervals and bootstrapping  
+In this tutorial, we will discuss how to gauge how good our estimated model parameters are.  
+- Learn how to use bootstrapping to generate new sample datasets
+- Estimate our model parameter on these new sample datasets
+- Quantify the variance of our estimate using confidence intervals
+### Boostrapping
+- Bootstrapping is a resampling procedure that allows to build confidence intervals around inferred parameter values. The idea is to generate many new synthetic datasets from the initial true dataset by randomly sampling from it, then finding estimators for each one of these new datasets, and finally looking at the distribution of all these estimators to quantify our confidence.
+- use ```numpy.random.choice``` method to resample a dataset with replacement. The actual number of points is the same, but some have been repeated so they only display once.
+- Generate a set of theta_hat estimates using the bootstrap method, invoke the function solve_normal_eqn to produce the MSE-based estimator.
+- Quantify how uncertain our estimated slope is by computing confidence intervals (CIs) from our bootstrapped estimates. The most direct approach is to compute percentiles from the empirical distribution of bootstrapped estimates.
+
