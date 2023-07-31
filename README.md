@@ -51,4 +51,10 @@ In this tutorial, we will discuss how to gauge how good our estimated model para
 - use ```numpy.random.choice``` method to resample a dataset with replacement. The actual number of points is the same, but some have been repeated so they only display once.
 - Generate a set of theta_hat estimates using the bootstrap method, invoke the function solve_normal_eqn to produce the MSE-based estimator.
 - Quantify how uncertain our estimated slope is by computing confidence intervals (CIs) from our bootstrapped estimates. The most direct approach is to compute percentiles from the empirical distribution of bootstrapped estimates.
-
+## Tutorial 4: Multiple linear regression and polynomial regression
+we will generalize the regression model to incorporate multiple features.  
+- Learn how to structure inputs for regression using the 'Design Matrix'
+- Generalize the MSE for multiple features using the ordinary least squares estimator
+- Visualize data and model fit in multiple dimensions
+- Fit polynomial regression models of different complexity
+- Plot and evaluate the polynomial regression fits
