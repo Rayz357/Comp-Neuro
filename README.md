@@ -67,4 +67,6 @@ Too complex models have low bias and high variance.
 Too simple models have high bias and low variance.
 ## Tutorial 6: Model Selection: Cross-validation
 We need to use model selection methods to determine the best model to use for a given problem.  
-Cross-validation focuses on how well the model predicts new data.  
+Cross-validation focuses on how well the model predicts new data.    
+ ### k-fold cross-validation
+- use Validation data to select the best model during the training process so that we don't have to use the test data
