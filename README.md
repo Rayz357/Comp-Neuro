@@ -58,3 +58,13 @@ we will generalize the regression model to incorporate multiple features.
 - Visualize data and model fit in multiple dimensions
 - Fit polynomial regression models of different complexity
 - Plot and evaluate the polynomial regression fits
+
+# 8-1: 
+## Tutorial 5:bias-variance trade-off
+- Bias-Variance Trade-off:   
+We need to strike the right balance between bias and variance. Ideally we want to find a model with optimal model complexity that has both low bias and low variance  
+Too complex models have low bias and high variance.  
+Too simple models have high bias and low variance.
+## Tutorial 6: Model Selection: Cross-validation
+We need to use model selection methods to determine the best model to use for a given problem.  
+Cross-validation focuses on how well the model predicts new data.  
