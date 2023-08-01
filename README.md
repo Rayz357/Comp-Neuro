@@ -64,9 +64,14 @@ we will generalize the regression model to incorporate multiple features.
 - Bias-Variance Trade-off:   
 We need to strike the right balance between bias and variance. Ideally we want to find a model with optimal model complexity that has both low bias and low variance  
 Too complex models have low bias and high variance.  
-Too simple models have high bias and low variance.
+Too simple models have high bias and low variance.  
 ## Tutorial 6: Model Selection: Cross-validation
 We need to use model selection methods to determine the best model to use for a given problem.  
 Cross-validation focuses on how well the model predicts new data.    
  ### k-fold cross-validation
 - use Validation data to select the best model during the training process so that we don't have to use the test data
+
+## Tutorial outro
+- Cross validation VS. Bootstrapping
+- in bootstrapping, we generate many models(parameters) and see how the estimates distributes. By computing confidence intervals (CIs) from our bootstrapped estimates, we can?
+- in Cross validation, we select models by asking how well the model predicts new data. and k-fold cross validation allows us to use train data as validation data.
