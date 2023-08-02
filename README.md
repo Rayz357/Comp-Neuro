@@ -75,3 +75,8 @@ Cross-validation focuses on how well the model predicts new data.
 - Cross validation VS. Bootstrapping
 - in bootstrapping, we generate many models(parameters) and see how the estimates distributes. By computing confidence intervals (CIs) from our bootstrapped estimates, we can?
 - in Cross validation, we select models by asking how well the model predicts new data. and k-fold cross validation allows us to use train data as validation data.
+
+# W1D3: Generalized linear models
+## Prequiresites:
+- Stimulus Representation:
+- Stochatistic Inference
