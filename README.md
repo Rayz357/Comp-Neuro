@@ -80,3 +80,7 @@ Cross-validation focuses on how well the model predicts new data.
 ## Prequiresites:
 - Stimulus Representation:
 - Stochatistic Inference
+# 8-2:
+## Tutorial 1: GLMs for Encoding
+OBJ: model a retinal ganglion cell spike train by fitting a temporal receptive field, first with Linear-Gaussian GLM (ordinary least-squares regression model), then with Poisson GLM  
+
