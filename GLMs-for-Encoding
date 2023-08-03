@@ -9,7 +9,7 @@ data = loadmat('RGCdata.mat')  # loadmat is a function in scipy.io
 dt_stim = data['dtStim'].item()  # .item extracts a scalar value
 
 # Extract the stimulus intensity
-stim = data['Stim'].squeeze()  # .squeeze removes dimensions with 1 element
+stim = data['Stim'].squeeze()  # .squeeze removes dimensions with 1 element 移除长度为1的维度，如(N,1)->(N,)
 
 # Extract the spike counts for one cell
 cellnum = 2
@@ -31,3 +31,4 @@ plot_stim_and_spikes(stim, spikes, dt_stim)
 - 使用刺激的零填充版本初始化一个具有正确形状的空设计矩阵
 - 填充设计矩阵的每一行
 
+对于每个时间点 i，X[i, j] 对应的是从当前时间点 i 开始，向前 j 个时间点的刺激强度。例如，X[i, 0] 就是在时间点 i 及其前 d-1 个时间点的刺激强度，X[i, d-1] 是在时间点 i 的刺激强度。
