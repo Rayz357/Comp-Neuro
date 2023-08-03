@@ -22,4 +22,12 @@ spikes = spikes[:keep_timepoints]
 #Use the plot_stim_and_spikes helper function to visualize the changes in stimulus intensities and spike counts over time.
 plot_stim_and_spikes(stim, spikes, dt_stim)
 ```
+### Coding Exercise 1.1: Create design matrix
+我们的目标是根据细胞之前的刺激强度来预测细胞的活动。这将帮助我们了解 RGC 如何随着时间的推移处理信息。为此，我们首先需要为此模型创建设计矩阵，该矩阵以矩阵形式组织刺激强度，使得第 i 行具有时间点 i 之前的刺激帧（细胞接受的刺激数量）。在本练习中，我们将使用 d=25 时间间隔(time bin?)创建设计矩阵 X。也就是说，X应该是T×d矩阵。 X是有T个细胞在d=25个时间间隔中产生的刺激d=25（约 200 ms）是我们根据影响 RGC 响应的时间窗口的先验知识做出的选择。  
+行 t 中的最后一个元素应对应于在时间 t 产生的刺激，其左侧的元素应包含前一次time bin输入的stim值，等等。  
+具体来说，Xij 将是时间 i+d-1-j 时的刺激强度 。请注意，在前几个时间段中，我们可以访问记录的尖峰计数，但不能访问输入的刺激值。为简单起见，我们假设数据集中第一个时间点之前的时间间隔的 stim 值为 0。这称为“零填充”，以便设计矩阵具有与尖峰中的响应矢量相同的行数。  
+您的任务是完成以下功能： 
+- 制作刺激的零填充版本 
+- 使用刺激的零填充版本初始化一个具有正确形状的空设计矩阵
+- 填充设计矩阵的每一行
 
