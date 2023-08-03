@@ -84,3 +84,7 @@ Cross-validation focuses on how well the model predicts new data.
 ## Tutorial 1: GLMs for Encoding
 OBJ: model a retinal ganglion cell spike train by fitting a temporal receptive field, first with Linear-Gaussian GLM (ordinary least-squares regression model), then with Poisson GLM  
 
+# 8-3 Tutorial 1: GLMs for Encoding
+- make a zero-padded version of the stimulus
+- initialize an empty design matrix with the correct shape
+- fill in each row of the design matrix, using the zero-padded version of the stimulus
