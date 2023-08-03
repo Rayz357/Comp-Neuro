@@ -1,0 +1,25 @@
+## Section 1.1: Load retinal ganglion cell activity data
+在这个练习中，我们使用来自实验的数据。该实验使用一个屏幕，该屏幕在两个亮度值之间随机交替，并记录了视网膜神经节细胞（RGC）的反应，RGC是眼睛后部视网膜中的一种神经元。这种视觉刺激被称为“全场闪烁”(“full-field flicker)，它以120Hz的频率呈现(~8ms)。该time bin用于计算每个神经元发出的spikes数量。  
+RGCdata.mat文档包含三个变量：
+- 刺激Stim :每个时间点的刺激强度。它是一个形状为 T×1 的数组(T=144051) 
+- SpCounts，2 个 ON 细胞和 2 个 OFF 细胞的在每个time bin的发出的尖峰数（binned spike counts)。它是一个 144051×4 数组，每列代表不同细胞的spike counts
+- dtStim，单个time bin的大小（以秒为单位），以峰值/秒为单位计算模型输出。尖峰帧速率(stimulus frame rate) = 1 / dtStim 
+```python
+data = loadmat('RGCdata.mat')  # loadmat is a function in scipy.io
+dt_stim = data['dtStim'].item()  # .item extracts a scalar value
+
+# Extract the stimulus intensity
+stim = data['Stim'].squeeze()  # .squeeze removes dimensions with 1 element
+
+# Extract the spike counts for one cell
+cellnum = 2
+spikes = data['SpCounts'][:, cellnum]
+
+# Don't use all of the timepoints in the dataset, for speed
+keep_timepoints = 20000
+stim = stim[:keep_timepoints]
+spikes = spikes[:keep_timepoints]
+#Use the plot_stim_and_spikes helper function to visualize the changes in stimulus intensities and spike counts over time.
+plot_stim_and_spikes(stim, spikes, dt_stim)
+```
+
