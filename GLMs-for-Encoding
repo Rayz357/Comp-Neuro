@@ -49,3 +49,8 @@ STA是一种较为简单的方法，它计算的是在观察到脉冲（或"spik
 ### Coding Exercise 2.1: Fitting the Poisson GLM and prediction spikes
 在LNP模型中，对一个给定的输入，首先进行线性滤波（这是由X @ theta实现的），然后通过一个非线性函数（这里是指数函数exp）转化，最后假设输出服从泊松分布。yhat = np.exp(X@theta)是非线性阶段的实现. X@theta实现了线性滤波，输出是神经元的驱动力（drive），然后np.exp函数将这个驱动力转化为预期的神经元的发射频率（firing rate）。  
 往往假设神经元的firing rate是非负的，并且随着驱动力的增加而增加。指数函数是一个常用的选择.yhat是预测的平均firing rate,真实的firing rate可能因为各种噪声的影响而有所波动。在LNP模型中，这种波动通常被假设为泊松分布。
+## Summary
+在这个教程中，我们探索了两种不同的模型（Linear-Nonlinear-Poisson (LNP)模型和Linear-Gaussian (LG)模型）来理解视网膜神经节细胞如何响应闪烁的白噪声刺激。
+  我们学习了如何构建设计矩阵（design matrix），这是一个可以输入到各种广义线性模型（GLMs）的重要数据结构。设计矩阵的每一行对应于一种特定的刺激情况，并包含该时间点之前的刺激强度信息，这对于理解神经元是如何处理时间相关信息的非常有用。  
+通过比较LNP和LG模型，我们发现LNP模型能更好地预测神经元的尖峰率。这是因为LNP模型对神经元反应的非线性和随机性有更好的处理，这反映了神经元的实际行为。然而，LNP模型也比LG模型更复杂，需要更复杂的优化方法来估计模型参数。  
+
