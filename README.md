@@ -1,10 +1,10 @@
 # Comp-Neuro
 My learning progress in Computational Neuroscience
 
-# 7-26:
+# 
 - Neuromatch: Intro to models - What models
 - what to 
-# 7-28:
+# 
 - "How" Models
   - How does a neuron spike? How does the Number of spikes-Inter spike intervals came out?
   - linear integrate-and-fire model neuron
@@ -22,7 +22,7 @@ summary: In this tutorial we gained some intuition for the mechanisms that produ
 Cmd\*dVm/dt=−(Vm−Vrest)/Rm+I  
 - Why model: an optimization problem - to get the biggest information content  
 - if our neuron has a fixed budget, what ISI distribution should it express (all else being equal) to maximize the information content of its outputs?  
-# 7-29: W1D2 fitting models to data
+#  W1D2 fitting models to data
   Tutorial 1: Linear regression with MSE  
   minimize  MSE by solving the normal equations using calculus, we find that θ^=x⊤y/x⊤x.  
   (set the derivative of the error expression with respect to  θ  equal to zero)
@@ -31,7 +31,7 @@ Cmd\*dVm/dt=−(Vm−Vrest)/Rm+I
   - ndarray tranpose: x.T  
   - ndarray 相乘: x@y  
 
-# 7-30: W1D2 
+#  W1D2 
 ## Tutorial 2:  Linear regression with MLE  
 - Learn about probability distributions and probabilistic models
 - Learn how to calculate the likelihood of our model parameters
@@ -59,13 +59,13 @@ we will generalize the regression model to incorporate multiple features.
 - Fit polynomial regression models of different complexity
 - Plot and evaluate the polynomial regression fits
 
-# 8-1: 
+# 
 ## Tutorial 5:bias-variance trade-off
 - Bias-Variance Trade-off:   
 We need to strike the right balance between bias and variance. Ideally we want to find a model with optimal model complexity that has both low bias and low variance  
 Too complex models have low bias and high variance.  
 Too simple models have high bias and low variance.  
-## Tutorial 6: Model Selection: Cross-validation
+##  Model Selection: Cross-validation
 We need to use model selection methods to determine the best model to use for a given problem.  
 Cross-validation focuses on how well the model predicts new data.    
  ### k-fold cross-validation
@@ -76,15 +76,15 @@ Cross-validation focuses on how well the model predicts new data.
 - in bootstrapping, we generate many models(parameters) and see how the estimates distributes. By computing confidence intervals (CIs) from our bootstrapped estimates, we can?
 - in Cross validation, we select models by asking how well the model predicts new data. and k-fold cross validation allows us to use train data as validation data.
 
-# W1D3: Generalized linear models
+# Generalized linear models
 ## Prequiresites:
 - Stimulus Representation:
 - Stochatistic Inference
-# 8-2:
+# 
 ## Tutorial 1: GLMs for Encoding
 OBJ: model a retinal ganglion cell spike train by fitting a temporal receptive field, first with Linear-Gaussian GLM (ordinary least-squares regression model), then with Poisson GLM  
 
-# 8-3 Tutorial 1: GLMs for Encoding
+#  Tutorial 1: GLMs for Encoding
 - make a zero-padded version of the stimulus
 - initialize an empty design matrix with the correct shape
 - fill in each row of the design matrix, using the zero-padded version of the stimulus
