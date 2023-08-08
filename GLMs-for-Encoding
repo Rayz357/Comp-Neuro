@@ -61,3 +61,5 @@ STA是一种较为简单的方法，它计算的是在观察到脉冲（或"spik
 Learn about logistic regression, how it is derived within the GLM theory, and how it is implemented in scikit-learn  
 Apply logistic regression to decode choies from neural responses  
 Learn about regularization, including the different approaches and the influence of hyperparameters  
+In this notebook, we learned about Logistic Regression, a fundamental algorithm for classification. We applied the algorithm to a neural decoding problem: we tried to predict an animal’s behavioural choice from its neural activity. We saw again how important it is to use cross-validation to evaluate complex models that are at risk for overfitting, and we learned how regularization can be used to fit models that generalize better. Finally, we learned about some of the different options for regularization, and we saw how cross-validation can be useful for model selection.  
+
