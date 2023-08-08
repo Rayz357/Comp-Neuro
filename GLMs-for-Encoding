@@ -58,3 +58,6 @@ STA是一种较为简单的方法，它计算的是在观察到脉冲（或"spik
 通过比较LNP和LG模型，我们发现LNP模型能更好地预测神经元的尖峰率。这是因为LNP模型对神经元反应的非线性和随机性有更好的处理，这反映了神经元的实际行为。然而，LNP模型也比LG模型更复杂，需要更复杂的优化方法来估计模型参数。  
 
 # Tutorial 2: Classifiers and regularizers
+Learn about logistic regression, how it is derived within the GLM theory, and how it is implemented in scikit-learn  
+Apply logistic regression to decode choies from neural responses  
+Learn about regularization, including the different approaches and the influence of hyperparameters  
