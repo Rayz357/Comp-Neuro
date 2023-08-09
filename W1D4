@@ -3,3 +3,4 @@
 - Multivariate data can be represented in a new orthonormal basis using the dot product. These new basis vectors correspond to specific mixtures of the original variables - for example, in neuroscience, they could represent different ratios of activation  across a population of neurons.
 - The projected data (after transforming into the new basis) will generally have a different geometry from the original data. In particular, taking basis vectors that are aligned with the spread of cloud of points decorrelates the data.
 * These concepts - covariance, projections, and orthonormal bases - are key for understanding PCA, which will be our focus in the next tutorial.
+# Tutorial 2: Principal Component Analysis
