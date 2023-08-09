@@ -4,3 +4,14 @@
 - The projected data (after transforming into the new basis) will generally have a different geometry from the original data. In particular, taking basis vectors that are aligned with the spread of cloud of points decorrelates the data.
 * These concepts - covariance, projections, and orthonormal bases - are key for understanding PCA, which will be our focus in the next tutorial.
 # Tutorial 2: Principal Component Analysis
+# Tutorial 3:
+* In this tutorial, we learned how to use PCA for dimensionality reduction by selecting the top principal components. This can be useful as the intrinsic dimensionality ($K$) is often less than the extrinsic dimensionality ($N$) in neural data. $K$ can be inferred by choosing the number of eigenvalues necessary to capture some fraction of the variance.
+* We also learned how to reconstruct an approximation of the original data using the top $K$ principal components. In fact, an alternate formulation of PCA is to find the $K$ dimensional space that minimizes the reconstruction error.
+* Noise tends to inflate the apparent intrinsic dimensionality, however the higher components reflect noise rather than new structure in the data. PCA can be used for denoising data by removing noisy higher components.
+* In MNIST, the weights corresponding to the first principal component appear to discriminate between a 0 and 1. We will discuss the implications of this for data visualization in the following tutorial.
+# Tutorial 4:  Nonlinear Dimensionality Reduction
+### Section 1: Visualize MNIST in 2D using PCA
+summary:  
+We learned the difference between linear and nonlinear dimensionality reduction. While nonlinear methods can be more powerful, they can also be sensitive to noise. In contrast, linear methods are useful for their simplicity and robustness.
+We compared PCA and t-SNE for data visualization. Using t-SNE, we could visualize clusters in the data corresponding to different digits. While PCA was able to separate some clusters (e.g., 0 vs 1), it performed poorly overall.
+However, the results of t-SNE can change depending on the choice of perplexity. To learn more, we recommend this Distill paper by Wattenberg, et al., 2016.
