@@ -1,5 +1,6 @@
 #Tutorial 1: Decoding Neural Responses
 In this tutorial, we’ll use deep learning to decode stimulus information from the responses of sensory neurons. Specifically, we’ll look at the activity of ~20,000 neurons in the mouse primary visual cortex responding to oriented gratings recorded in this study. Our task will be to decode the orientation of the presented stimulus from the responses of the whole population of neurons.
+
 # Tutorial 2: 2D CNN
   2D卷积（2维卷积）是一种在图像处理和计算机视觉中常用的操作，也是许多深度学习模型的基本构建块。在2D卷积中，使用一个叫做卷积核（或过滤器）的小型矩阵在输入图像或矩阵上滑动。在每一步，卷积核与覆盖的输入区域对应元素相乘，然后将结果求和以产生输出矩阵的一个元素。随后，卷积核向右或向下移动一定的步长（通常为1），然后重复这个过程。  
 卷积操作: 卷积层使用一个固定大小的滤波器或内核，这个滤波器在输入图像上滑动，计算其与每个可能的局部区域的加权和。由于滤波器的权重在整个图像上保持不变，因此卷积层中的所有神经元共享相同的权重。
@@ -23,3 +24,6 @@ conv_layer = nn.Conv2d(Cin=1, Cout=16, K=3)
 - 特征图：每个滤波器与输入图像进行卷积，产生一个特征图，这个特征图强调了输入中与该滤波器对应的特定特征。
 - 多通道输出：如果一个卷积层有多个滤波器（即多个输出通道），则每个通道产生一个特征图。整个卷积层的输出是这些特征图的堆叠，形成一个多通道的输出。
 例如，如果一个卷积层有32个输出通道，那么它将有32个不同的卷积滤波器，每个滤波器与输入图像进行卷积，产生32个特征图。这些特征图共同形成了该卷积层的输出，捕获了输入图像中的多个不同方面的信息。
+
+
+==回答Section2最后的几个问题==
