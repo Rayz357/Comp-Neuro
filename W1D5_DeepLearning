@@ -1,1 +1,2 @@
 #Tutorial 1: Decoding Neural Responses
+In this tutorial, we’ll use deep learning to decode stimulus information from the responses of sensory neurons. Specifically, we’ll look at the activity of ~20,000 neurons in the mouse primary visual cortex responding to oriented gratings recorded in this study. Our task will be to decode the orientation of the presented stimulus from the responses of the whole population of neurons.
