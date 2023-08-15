@@ -42,3 +42,25 @@ Section 3: Equilibrium of the telegraph process
 - 电报过程是一个描述两个状态之间随机转换的模型。例如，这可以模拟离子通道的开闭状态。你可以用两种方式模拟电报过程：一是作为状态更改的模拟，即在每个时间点确定状态的更改；二是作为概率分布的传播，即通过转换矩阵跟踪状态概率的变化。对于第一种方式，我们使用了泊松过程来模拟离子通道的状态，可以在整个模拟时间内观察通道的状态，并测量状态切换之间的时间间隔分布。状态更改的模拟可以在给定的时间步内，根据转换概率，确定系统是否从一个状态转换到另一个状态（也就是给出状态-时间关系图）。与第一种方法不同，概率分布的传播不关心系统的具体实现，而是跟踪系统状态的概率分布
 - The relationship between the stability analysis of a dynamical system expressed either in continuous or discrete time.在连续时间动态系统中，稳定性可以通过系统的特征值来分析。特征值的实部确定了系统沿着相应特征向量方向的增长或衰减。离散时间系统也具有相似的分析，其中特征值的模的大小决定了沿着特征向量方向的行为。连续和离散时间系统的主要区别在于时间的表示和演变方式，但稳定性分析的基本思想在两者之间保持一致
 - The equilibrium behavior of a telegraph process is predictable and can be understood using the same strategy as for deterministic systems in Tutorial 1: by taking the eigendecomposition of the  A  matrix.
+## Tutorial 3:
+### Section 1: Random Walks
+随机漫步是一种简单的随机过程，其中一个“行走者”在每一步都随机地选择方向。虽然每一步的方向是随机的，但随着时间的推移，我们可以观察到某些统计特性。这是一个很好的理解随机性如何工作的入门示例。
+- 在随机漫步中，由于向左和向右的选择概率相等，所以移动的期望值是零
+- 虽然均值不随时间变化，但方差确实随时间线性增加。方差衡量了分布的宽度，或者说位置的不确定性。在随机漫步中，由于每一步都是完全随机的，所以位置的不确定性随时间线性增加。这可以数学上表示为 Var(x)∝t，
+这样的过程称为扩散过程
+### Section 2: The Ornstein-Uhlenbeck (OU) process
+漂移扩散模型（Drift-Diffusion Model, DDM），这是一个将随机漫步过程与确定性动态过程相结合的模型    
+x_(k+1)=λx_k 其中 x(k) 是在时间 k 的状态，而 λ 是一个常数，控制着系统如何随时间演变。  
+该方程的解为：x(k) = x(0) * λ^k
+Notice that this process decays towards position  x=0 . We can make it decay towards any position by adding another parameter  x∞ . The rate of decay is proportional to the difference between  x  and  x∞ . Our new system is  
+xk+1=x∞+λ(xk−x∞) OR xk=x∞(1−λk)+x0λk.
+#### 随机漫步和漂移扩散模型
+- 随机漫步可以看作是DDM的一个特例，当漂移项为零时。
+- DDM通过引入一个稳定的漂移项，为随机漫步过程增加了方向性和预测性。
+- 漂移项提供了一个平均方向，而扩散项则描述了围绕这个平均方向的随机波动。
+
+### Section 3: Variance of the OU process
+### Summary
+确定性和随机部分：OU系统包括一个确定性的部分和一个随机的部分。确定性部分通常描述了系统的平均行为或趋势，而随机部分描述了由于未知或不可预测因素造成的偏离这些平均行为的波动。  
+与纯随机过程的比较：与纯随机过程（例如随机漫步）相比，OU系统的方差不会随时间无限增长。确定性部分对随机波动有所约束，从而使系统保持更有序和可预测的状态。  
+在认知功能中的应用：由于OU系统可以平衡随机性和确定性，它们成为了许多认知功能模型的热门选择。例如，在短时记忆和决策制定中，人们需要考虑固定的规则和可预测的模式，同时还需要灵活地适应新的信息和不确定的情况。OU系统通过结合这两个方面为这些过程提供了一个有效的数学框架。
