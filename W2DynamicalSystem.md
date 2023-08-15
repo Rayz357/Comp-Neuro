@@ -19,3 +19,26 @@ The behavior of a one-dimensional linear dynamical system  x˙=ax  is determined
 The dynamics of high-dimensional linear dynamical systems  x˙=Ax  can be understood using the same intuitions, where we can summarize the behavior of the trajectories using the eigenvalues and eigenvectors of  A .  
 一维线性动态系统随时间变化的轨迹用欧拉方法模拟，高维线性动态系统(x˙=Ax)用矩阵表示后，可以用流线图结合特征值特征向量绘制其轨迹。通过矩阵 A 的特征分解，我们可以了解系统在各个方向上的行为，并使用这些知识来分析和控制动力学系统
 # Tutorial 2: Markov Processes
+In Tutorial 1, we studied dynamical systems as a deterministic process. For Tutorial 2, we will look at probabilistic dynamical systems.马尔可夫过程是概率过程的一种特殊类型。在马尔可夫过程中，下一状态的转换完全由当前状态决定，与过去的状态无关。
+泊松过程  
+泊松过程被用来模拟状态改变的过程。泊松过程用于模拟离散事件，其中平均事件发生间隔时间已知，但某个具体事件的确切时间未知。泊松过程的几个关键点包括：
+
+某个事件发生的概率与所有其他事件独立。
+给定时间段内的事件平均速率是恒定的。
+两个事件不能同时发生（离子通道不能同时处于打开和关闭状态）。  
+
+Section 2: Distributional Perspective  
+函数simulate_prob_prop，该函数模拟了给定转换矩阵A的概率传播，初始状态x0，总持续时间T和时间步长dt。这个函数实现了一个离散时间马尔可夫过程，可以用于模拟像离子通道这样的系统的打开和关闭状态
+使用np.dot(A,x[-1,:])时，x作为一个行向量被numpy自动解释成了列向量  
+Section 3: Equilibrium of the telegraph process  
+特征分解（eigendecomposition）是一个强大的数学工具，可用于分析线性动态系统的稳定性和行为。如何通过分解转移矩阵 A 的特征值和特征向量来了解系统的性质。  
+给定一个方阵 A，我们可以找到一些向量 v 和标量 λ，满足：Av=λv这里的 v 称为特征向量，λ 称为对应的特征值。  
+特征值的大小和符号提供了关于系统稳定性的信息： 
+- 如果特征值的模小于 1（|λ| < 1），那么随着时间的推移，系统沿着对应的特征向量方向的分量会衰减到零。这表明系统是稳定的。
+- 如果特征值的模等于 1（|λ| = 1），系统沿着该方向的分量将保持不变。这可能是一个中性稳定的方向。
+- 如果特征值的模大于 1（|λ| > 1），系统沿着该方向的分量将随时间增长。这表明系统在该方向上是不稳定的。
+### Summary：
+- The definition of a Markov process with history dependence.
+- 电报过程是一个描述两个状态之间随机转换的模型。例如，这可以模拟离子通道的开闭状态。你可以用两种方式模拟电报过程：一是作为状态更改的模拟，即在每个时间点确定状态的更改；二是作为概率分布的传播，即通过转换矩阵跟踪状态概率的变化。对于第一种方式，我们使用了泊松过程来模拟离子通道的状态，可以在整个模拟时间内观察通道的状态，并测量状态切换之间的时间间隔分布。状态更改的模拟可以在给定的时间步内，根据转换概率，确定系统是否从一个状态转换到另一个状态（也就是给出状态-时间关系图）。与第一种方法不同，概率分布的传播不关心系统的具体实现，而是跟踪系统状态的概率分布
+- The relationship between the stability analysis of a dynamical system expressed either in continuous or discrete time.在连续时间动态系统中，稳定性可以通过系统的特征值来分析。特征值的实部确定了系统沿着相应特征向量方向的增长或衰减。离散时间系统也具有相似的分析，其中特征值的模的大小决定了沿着特征向量方向的行为。连续和离散时间系统的主要区别在于时间的表示和演变方式，但稳定性分析的基本思想在两者之间保持一致
+- The equilibrium behavior of a telegraph process is predictable and can be understood using the same strategy as for deterministic systems in Tutorial 1: by taking the eigendecomposition of the  A  matrix.
