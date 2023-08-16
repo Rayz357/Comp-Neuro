@@ -1,19 +1,19 @@
 # W2D2:
 ## Tutorial 1: Linear dynamical systems
 线性常微分方程的近似解：Forward Euler Method  
-Section 2: Oscillatory Dynamics  
+### Section 2: Oscillatory Dynamics  
 when  a  is a complex number and has a non-zero imaginary component.  
 同样的，X(t)=exp(αt) xdot=αx
 可以分解为x_0*exp[(at)(cosbt+isinbt)]形式,通过尝试改变实部，虚部正负，可以得到稳定振荡，发散，收敛几种结果  
-Section 3: Deterministic Linear Dynamics in Two Dimensions  
+### Section 3: Deterministic Linear Dynamics in Two Dimensions  
  simulate some trajectories of a given system and plot how 𝑥1 and 𝑥2 evolve in time. 
-Section 4: Stream Plots  
+### Section 4: Stream Plots  
 流线图：更直观地展示一组初始条件是如何影响系统轨迹  
 初始条件作为空间坐标: 可以将初始条件X_0视为空间中的一个位置。在这个上下文中，初始条件是一个点，表示系统开始演化的起点。  
 对于一个2x2矩阵 A，流线图在每个位置 x 计算一个小箭头来指示 Ax，然后连接这些小箭头形成流线。这里 Ax 表示系统在该位置的变化方向和速度。穿过该点的流线表示 x(t)，即系统从该初始条件随时间演化的轨迹。  
 主特征向量指向的方向特殊之处在于，它是沿着该方向 Ax 与 x 平行，并且在该方向上 Ax 相对于 x 被拉伸或压缩的最大因子。在许多情况下，这表明了系统的主要变化方向或敏感方向。  
 系统的稳定性与特征值有关。如果特征值大于1，系统在特征向量的方向上展开；如果特征值小于1，系统在该方向上收缩；如果特征值为负，则系统在该方向上倒转。稳定性与这些特征值的大小和符号有关，可以帮助我们理解系统在不同方向上的行为如何组合以产生整体的动态行为。  
-Summary:  模拟动力系统的轨迹
+### Summary:  模拟动力系统的轨迹
 How to simulate the trajectory of a dynamical system specified by a differential equation  x˙=f(x)  using a forward Euler integration scheme.  
 The behavior of a one-dimensional linear dynamical system  x˙=ax  is determined by  a , which may be a complex valued number. Knowing  a , we know about the stability and oscillatory dynamics of the system.  
 The dynamics of high-dimensional linear dynamical systems  x˙=Ax  can be understood using the same intuitions, where we can summarize the behavior of the trajectories using the eigenvalues and eigenvectors of  A .  
@@ -27,10 +27,10 @@ In Tutorial 1, we studied dynamical systems as a deterministic process. For Tuto
 给定时间段内的事件平均速率是恒定的。
 两个事件不能同时发生（离子通道不能同时处于打开和关闭状态）。  
 
-Section 2: Distributional Perspective  
+### Section 2: Distributional Perspective  
 函数simulate_prob_prop，该函数模拟了给定转换矩阵A的概率传播，初始状态x0，总持续时间T和时间步长dt。这个函数实现了一个离散时间马尔可夫过程，可以用于模拟像离子通道这样的系统的打开和关闭状态
 使用np.dot(A,x[-1,:])时，x作为一个行向量被numpy自动解释成了列向量  
-Section 3: Equilibrium of the telegraph process  
+### Section 3: Equilibrium of the telegraph process  
 特征分解（eigendecomposition）是一个强大的数学工具，可用于分析线性动态系统的稳定性和行为。如何通过分解转移矩阵 A 的特征值和特征向量来了解系统的性质。  
 给定一个方阵 A，我们可以找到一些向量 v 和标量 λ，满足：Av=λv这里的 v 称为特征向量，λ 称为对应的特征值。  
 特征值的大小和符号提供了关于系统稳定性的信息： 
@@ -72,3 +72,34 @@ xk+1=x∞+λ(xk−x∞) OR xk=x∞(1−λk)+x0λk.
 ### Section 2: Higher order autoregressive models
 高阶自回归模型能够捕捉时间序列中更复杂的时间依赖结构，使模型能够更精确地描述数据的动态行为。不过，选择合适的阶数是一个挑战，因为阶数太低可能无法充分捕捉依赖性，而阶数太高可能导致过拟合。在实际应用中，人们通常会使用诸如AIC或BIC等信息准则来确定最佳的阶数。
 xk+1=α0+α1xk+α2xk−1+α3xk−2+⋯+αr+1xk−r  
+
+# W2D3: Biological Neuron Model
+## Tutorial 1:The Leaky Integrate-and-Fire (LIF) Neuron Model
+这个教程的目标是通过对LIF神经元模型的研究，提供对神经元如何响应各种输入的理解，特别是关注在哪些条件下神经元可能以低频率和不规则的方式发射
+1. 模拟LIF神经元模型
+2. 用外部输入驱动LIF神经元
+3. 研究不同输入对LIF神经元输出的影响
+4. 重点关注不规则和低频率发射的条件
+### Section 1:
+LIF模型的特点
+- 执行突触输入的空间和时间积分
+- 当电压达到某一阈值时产生脉冲
+- 在动作电位期间进入不应期
+- 具有漏电膜
+LIF模型的假设
+- 空间和时间输入的积分是线性的。
+- 接近动作电位阈值的膜电位动态在LIF神经元中比在真实神经元中慢得多。
+### Section 2: Response of an LIF model to different types of input currents
+- 达到阈值所需的直流电流有多少?
+- 膜时间常数如何影响神经元的频率？
+-   膜时间常数（τ_m）是电位达到其稳态值的时间量度。较大的膜时间常数意味着电位变化较慢，因此可能需要更长的时间才能达到阈值，
+- 噪声如何影响神经元行为?通过引入高斯白噪声进行模拟
+-   更大的电流波动（增加的σ）降低了发放阈值：当σ增加时，需要的μ减小
+-   标准偏差σ（或电流波动的大小）控制了脉冲的不规则性水平
+- GWN的均值、方差与脉冲计数的关系
+-   较高的均值和方差都会增加脉冲计数，并造成不规则性。不应期等生理属性会限制不规则形的最大值
+### Section 3: Firing rate and spike time irregularity  
+第3节介绍了如何通过GWN（高斯白噪声）均值或DC值来绘制神经元的输出发射率，称为神经元的输入-输出传递函数，或简称为F-I曲线。还介绍了如何通过计算interspike interval（ISI）的变异系数（CV）来量化脉冲的规律性。
+- 脉冲时间间隔的变异系数（CVISI）：CVISI是衡量脉冲时间不规则性的量。计算为ISI的标准偏差除以ISI的均值。CVISI的值为1表示高不规则性，如泊松过程；值为0表示完全规则的过程。
+- DC输入：在直流输入下，神经元的响应是确定的。也就是说，对于给定的输入电流强度，总是会得到相同的输出频率。F-I曲线通常可能是非线性的，依赖于神经元和输入的特定属性。通过解神经元的膜方程，可以精确地找到这个曲线的形状。
+- GWN输入：当使用高斯白噪声输入时，情况变得更复杂。噪声的平均值可以视为一个DC分量，但噪声的标准偏差（或sigma）增加了不确定性和随机性。随着sigma的增加，F-I曲线变得更线性。由于噪声的随机波动，神经元可能会以较低的平均注入电流达到阈值。这样的效应可以导致更灵活的编码和响应，但也使行为变得随机和不可预测。
