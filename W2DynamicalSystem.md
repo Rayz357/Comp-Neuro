@@ -114,3 +114,49 @@ LIF模型的假设
 - 使用外部输入（如直流和高斯白噪声）驱动LIF神经元
 - 研究了不同输入如何影响LIF神经元的输出（发放率和脉冲时间不规则性）
 - 特别关注了低发放率和不规则发放模式，以模拟真实的皮层神经元。
+## Tutorial 2: Effects of Core
+研究神经元是如何将输入相关性转化为输出特性（相关性的传递）。具体来说，我们将编写一些代码来：
+- 在一对神经元中注入相关的GWN（高斯白噪声）
+- 测量两个神经元之间的脉冲活动的相关性
+- 研究相关性传递如何依赖于输入的统计特性，即均值和标准差。
+
+### Section 1: Correlations (Synchrony)
+相关性/同步性是指神经元的同时脉冲,有以下几种原因：
+- 共同输入：即两个神经元从相同的源接收输入。共享输入的相关度与它们的输出相关度成正比。
+- 从相同源池化：神经元不共享相同的输入神经元，但从彼此相关的神经元接收输入。
+- 神经元彼此连接（单向或双向）：这只会引起时间延迟同步。神经元也可以通过间隙连接相连。
+- 神经元具有相似的参数和初始条件。
+
+同步性的影响：
+- 当神经元一起脉冲时，它们可以对下游神经元产生更强的影响。大脑中的突触对突触前和突触后活动之间的时间相关性（即延迟）敏感，这反过来可以导致功能神经网络的形成 - 无监督学习的基础
+- 同步性暗示了系统维度的减少。此外，相关性在许多情况下可能会损害神经元活动的解码。
+
+
+在下一个练习中，我们将使用泊松分布来模拟脉冲列。记得你在统计学预备课程中已经看到泊松分布以这种方式被使用过。要记得泊松脉冲列具有以下特性：
+- 脉冲计数的均值和方差之比为1。
+- 脉冲间隔呈指数分布。
+- 脉冲时间不规则，即 CV_ISI=1。
+- 相邻的脉冲间隔彼此独立。
+我们提供一个辅助函数Poisson_generator，然后使用它生成一个泊松脉冲列。Poisson spike train是一种数学模型，用于描述神经元（或一组神经元）的发放活动。在这个模型中，神经元在每个给定的时间间隔内发放一个动作电位（或“脉冲”）的概率是常数。该模型的名称用于描述脉冲发生的随机性。
+
+### Section 2: Investigate the effect of input correlation on the output correlation
+We first generate the correlated inputs. Then we inject the correlated inputs  I1,I2  into a pair of neurons and record their output spike times. We continue measuring the correlation between the output and investigate the relationship between the input correlation and the output correlation.  
+
+- 输出相关性小于输入相关性
+- 输出相关性作为输入相关性的函数呈线性变化。
+- 这些结果展示了输入信号在通过神经元传输过程中的转换特性。
+
+The above plot of input correlation vs. output correlation is called the correlation transfer function of the neurons.相关性传递函数为我们提供了一种量化神经元或神经元网络如何响应不同程度的输入相关性的方法。
+### Section 3: Correlation transfer function
+How do the mean and standard deviation of the Gaussian white noise (GWN) affect the correlation transfer function?  
+线性F-I曲线：如果F-I曲线是线性的，输出相关性就与输入的均值和标准偏差无关。换句话说，输入电流的任何部分都可以直接转换为突触活动，而不会发生失真。  
+非线性F-I曲线：然而，实际的神经元通常具有非线性的F-I曲线。即使是具有阈值线性F-I曲线的神经元，输入电流的均值和标准偏差也会影响输出相关性。这可能是因为神经元对于超过一定阈值的输入更敏感，因此只有超过该阈值的输入才能有效地转化为输出突发。此外，输入电流的均值和标准偏差可能会决定神经元是在其F-I曲线的哪个部分操作。  
+What is the rationale behind varying  μ  and  σ ?  
+神经突触电流的均值和方差取决于Poisson过程的尖峰速率。我们可以使用被称为Campbell定理的东西来估计突触电流的均值和方差：
+
+μ_syn = λJ∫P(t)dt
+σ_syn = λJ∫P(t)^2dt
+
+其中，λ是Poisson输入的发射速率，J是突触后电流的幅度，P(t)是突触后电流作为时间函数的形状。
+
+因此，当我们改变GWN的μ和/或σ时，我们模拟了输入发射速率的变化。请注意，如果我们改变发射速率，μ和σ将同时改变，而不是独立改变。
