@@ -149,14 +149,17 @@ We first generate the correlated inputs. Then we inject the correlated inputs  I
 The above plot of input correlation vs. output correlation is called the correlation transfer function of the neurons.相关性传递函数为我们提供了一种量化神经元或神经元网络如何响应不同程度的输入相关性的方法。
 ### Section 3: Correlation transfer function
 How do the mean and standard deviation of the Gaussian white noise (GWN) affect the correlation transfer function?  
-线性F-I曲线：如果F-I曲线是线性的，输出相关性就与输入的均值和标准偏差无关。换句话说，输入电流的任何部分都可以直接转换为突触活动，而不会发生失真。  
-非线性F-I曲线：然而，实际的神经元通常具有非线性的F-I曲线。即使是具有阈值线性F-I曲线的神经元，输入电流的均值和标准偏差也会影响输出相关性。这可能是因为神经元对于超过一定阈值的输入更敏感，因此只有超过该阈值的输入才能有效地转化为输出突发。此外，输入电流的均值和标准偏差可能会决定神经元是在其F-I曲线的哪个部分操作。  
+**线性F-I曲线**：如果F-I曲线是线性的，输出相关性就与输入的均值和标准偏差无关。换句话说，输入电流的任何部分都可以直接转换为突触活动，而不会发生失真。  
+**非线性F-I曲线**：然而，实际的神经元通常具有非线性的F-I曲线。即使是具有阈值线性F-I曲线的神经元，输入电流的均值和标准偏差也会影响输出相关性。这可能是因为神经元对于超过一定阈值的输入更敏感，因此只有超过该阈值的输入才能有效地转化为输出突发。此外，输入电流的均值和标准偏差可能会决定神经元是在其F-I曲线的哪个部分操作。  
 What is the rationale behind varying  μ  and  σ ?  
-神经突触电流的均值和方差取决于Poisson过程的尖峰速率。我们可以使用被称为Campbell定理的东西来估计突触电流的均值和方差：
-
-μ_syn = λJ∫P(t)dt
-σ_syn = λJ∫P(t)^2dt
-
-其中，λ是Poisson输入的发射速率，J是突触后电流的幅度，P(t)是突触后电流作为时间函数的形状。
-
-因此，当我们改变GWN的μ和/或σ时，我们模拟了输入发射速率的变化。请注意，如果我们改变发射速率，μ和σ将同时改变，而不是独立改变。
+神经突触电流的均值和方差取决于Poisson过程的尖峰速率。我们可以使用被称为Campbell定理的东西来估计突触电流的均值和方差：  
+μ_syn = λJ∫P(t)dt    
+σ_syn = λJ∫P(t)^2dt  
+其中，λ是Poisson输入的发射速率，J是突触后电流的幅度，P(t)是突触后电流作为时间函数的形状。  
+因此，当我们改变GWN的μ和/或σ时，我们模拟了输入发射速率的变化。请注意，如果我们改变发射速率，μ和σ将同时改变，而不是独立改变。  
+1. What are the factors that would make output correlations smaller than input correlations? (Notice that the colored lines are below the black dashed line)
+   - 转移过程中减小相关性的可能机制：什么因素可能使输出相关性小于输入相关性。平均值和方差的减小、神经元之间参数的差异，以及神经传递函数的斜率都可能导致输入和输出之间的相关性降低。
+2. What does the fact that output correlations are smaller mean for the correlations throughout a network?
+   - 如果输出相关性始终小于输入相关性，那么理论上网络活动的相关性最终应该趋近于零。但在实际情况中，这并没有发生，所以当前模型中似乎缺少了一些东西，这些因素可能是理解网络同步起源的关键。
+3. Here we have studied the transfer of correlations by injecting GWN. But in the previous tutorial, we mentioned that GWN is unphysiological. Indeed, neurons receive colored noise (i.e., Shot noise or OU process). How do these results obtained from injection of GWN apply to the case where correlated spiking inputs are injected in the two LIFs? Will the results be the same or different?
+   - 当考虑脉冲输入而不是高斯白噪声输入时结果是否相同。作者认为结果在定性上将是相似的，因为脉冲输入的火率与输入的均值和方差有关。但是，当考虑多个脉冲输入时，可能会产生两种不同类型的相关性，需要进一步研究和理解。
