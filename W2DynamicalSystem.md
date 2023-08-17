@@ -163,3 +163,19 @@ What is the rationale behind varying  μ  and  σ ?
    - 如果输出相关性始终小于输入相关性，那么理论上网络活动的相关性最终应该趋近于零。但在实际情况中，这并没有发生，所以当前模型中似乎缺少了一些东西，这些因素可能是理解网络同步起源的关键。
 3. Here we have studied the transfer of correlations by injecting GWN. But in the previous tutorial, we mentioned that GWN is unphysiological. Indeed, neurons receive colored noise (i.e., Shot noise or OU process). How do these results obtained from injection of GWN apply to the case where correlated spiking inputs are injected in the two LIFs? Will the results be the same or different?
    - 当考虑脉冲输入而不是高斯白噪声输入时结果是否相同。作者认为结果在定性上将是相似的，因为脉冲输入的火率与输入的均值和方差有关。但是，当考虑多个脉冲输入时，可能会产生两种不同类型的相关性，需要进一步研究和理解。
+### Summary:
+我们研究了如何将两个LIF神经元的输入相关性映射到它们的输出相关性。具体来说，我们做了以下几个步骤：  
+1. 将相关的GWN（高斯白噪声）注入一对神经元；
+2. 测量这两个神经元的突触活动之间的相关性；
+3. 研究相关性的转移如何依赖于输入的统计特性，即均值和标准偏差。
+在这里，我们关注的是零时间滞后的相关性。因此，我们将相关性的估计限制为瞬时相关性。如果你对时间滞后的相关性感兴趣，那么我们应该估计spike train的互相关图，并找出主要峰值和峰值下的面积以获得输出相关性的估计。有时间可以查看附加视频，思考神经元集合对时变输入的响应。
+## Tutorial 3: Synaptic transmission - Models of static and dynamic synapses
+本教程将对化学突触传递进行建模，并研究由静态突触和动态突触产生的一些有趣效应。  
+首先，我们将编写代码模拟静态突触，其权重始终固定。  
+其次，我们将扩展模型并模拟动态突触，其突触强度取决于最近的突触历史。突触的效应可以根据其突触前伙伴的最近放电率逐渐增加或减小。这一特性被称为短时可塑性，并导致突触经历促进或抑制。  
+
+教程的目标是：  
+模拟静态突触，并研究兴奋和抑制如何影响神经元的放电输出模式。  
+定义平均驱动或波动驱动的调节方式。  
+模拟突触的短时动态（促进和抑制）。  
+研究突触前放电历史如何影响突触权重（即PSP幅度）。  
