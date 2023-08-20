@@ -258,3 +258,6 @@ STP的这种现象学模型成功地再现了许多皮层区域观察到的抑�
 3. 数值模拟兴奋性种群的动态，并找到系统的固定点：
 
 通过数值模拟，可以观察系统随时间的演化。固定点分析有助于理解系统的稳定性和可能的长期行为。
+### Section 1.1: Dynamics of a single excitatory population
+ we can describe the firing rate dynamic of a feed-forward network as: τ*dr/dt=−r+F(I_ext)  
+ 
