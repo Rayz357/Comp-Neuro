@@ -277,11 +277,11 @@ How to add realistic inputs to our model.
 通过引入抑制性（I）和兴奋性（E）神经元群体来构建一个更复杂的网络。我们将使用所谓的Wilson-Cowan速率模型来研究这两个相互作用的群体的动态。  
 1.写Wilson-Cowan方程：我们将为由兴奋性（E）和抑制性（I）神经元群体组成的2D系统编写火力动态的Wilson-Cowan方程。
 
-2. 模拟系统动态：使用Wilson-Cowan模型来模拟系统的动态，即如何随时间演化。
+2.模拟系统动态：使用Wilson-Cowan模型来模拟系统的动态，即如何随时间演化。
 
-3. 绘制频率-电流（F-I）曲线：我们将为两个群体（即E和I）绘制F-I曲线，以了解不同输入电流下的发放率。
+3.绘制频率-电流（F-I）曲线：我们将为两个群体（即E和I）绘制F-I曲线，以了解不同输入电流下的发放率。
 
-4. 使用相平面分析可视化系统行为：我们将通过向量场和零轴线来查看系统的行为，以理解不同群体如何相互作用，并检查其动态行为。
+4.使用相平面分析可视化系统行为：我们将通过向量场和零轴线来查看系统的行为，以理解不同群体如何相互作用，并检查其动态行为。
 
 附加步骤：
 
@@ -296,3 +296,27 @@ c. 了解Wilson-Cowan模型如何达到振荡状态：这可以帮助我们理�
 a. 可视化抑制稳定网络的行为：这有助于理解抑制如何影响网络的稳定性和功能。
 
 b. 使用Wilson-Cowan模型模拟工作记忆：我们可以使用该模型来模拟和理解大脑中与记忆和信息存储有关的过程。
+
+### section 1.1: Mathematical description of the WC model
+### Section 1.2: Simulation scheme for the Wilson-Cowan model
+### Section 2: Phase plane analysis
+### Section 2.1: Nullclines of the Wilson-Cowan Equations
+### Section 2.2: Vector field
+### Summary
+Here, you learned how to simulate a rate based model consisting of excitatory and inhibitory population of neurons.
+
+In the last tutorial on dynamical neuronal networks you learned to:
+
+Implement and simulate a 2D system composed of an E and an I population of neurons using the Wilson-Cowan model
+Plot the frequency-current (F-I) curves for both populations
+Examine the behavior of the system using phase plane analysis, vector fields, and nullclines.
+Do you have more time? Have you finished early? We have more fun material for you!
+
+In the bonus tutorial, there are some, more advanced concepts on dynamical systems:
+
+You will learn how to find the fixed points on such a system, and to investigate its stability by linearizing its dynamics and examining the Jacobian matrix.
+You will identify conditions under which the Wilson-Cowan model can exhibit oscillations.
+If you need even more, there are two applications of the Wilson-Cowan model:
+
+Visualization of an Inhibition-stabilized network
+==Simulation of working memory==
