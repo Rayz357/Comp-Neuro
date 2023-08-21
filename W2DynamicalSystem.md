@@ -261,3 +261,38 @@ STP的这种现象学模型成功地再现了许多皮层区域观察到的抑�
 ### Section 1.1: Dynamics of a single excitatory population
  we can describe the firing rate dynamic of a feed-forward network as: τ*dr/dt=−r+F(I_ext)  
  
+ 
+### Summary: 
+In this tutorial, we have investigated the dynamics of a rate-based single population of neurons.
+
+We learned about:
+
+The effect of the input parameters and the time constant of the network on the dynamics of the population.  
+How to find the fixed point(s) of the system.  
+We build on these concepts in the bonus material - check it out if you have time. You will learn:  
+
+How to determine the stability of a fixed point by linearizing the system.  
+How to add realistic inputs to our model.  
+## Tutorial 2: Wilson-Cowan Model
+通过引入抑制性（I）和兴奋性（E）神经元群体来构建一个更复杂的网络。我们将使用所谓的Wilson-Cowan速率模型来研究这两个相互作用的群体的动态。  
+1.写Wilson-Cowan方程：我们将为由兴奋性（E）和抑制性（I）神经元群体组成的2D系统编写火力动态的Wilson-Cowan方程。
+
+2. 模拟系统动态：使用Wilson-Cowan模型来模拟系统的动态，即如何随时间演化。
+
+3. 绘制频率-电流（F-I）曲线：我们将为两个群体（即E和I）绘制F-I曲线，以了解不同输入电流下的发放率。
+
+4. 使用相平面分析可视化系统行为：我们将通过向量场和零轴线来查看系统的行为，以理解不同群体如何相互作用，并检查其动态行为。
+
+附加步骤：
+
+a. 寻找并绘制Wilson-Cowan模型的固定点：这有助于理解系统在何种条件下达到稳态。
+
+b. 研究Wilson-Cowan模型的稳定性：通过线性化其动态并检查雅可比矩阵，我们可以了解系统的稳定性。
+
+c. 了解Wilson-Cowan模型如何达到振荡状态：这可以帮助我们理解某些生物现象，例如脑中的节律振荡。
+
+附加步骤（应用）：
+
+a. 可视化抑制稳定网络的行为：这有助于理解抑制如何影响网络的稳定性和功能。
+
+b. 使用Wilson-Cowan模型模拟工作记忆：我们可以使用该模型来模拟和理解大脑中与记忆和信息存储有关的过程。
