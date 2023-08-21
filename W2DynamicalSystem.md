@@ -307,7 +307,7 @@ Here, you learned how to simulate a rate based model consisting of excitatory an
 
 In the last tutorial on dynamical neuronal networks you learned to:
 
-Implement and simulate a 2D system composed of an E and an I population of neurons using the Wilson-Cowan model
+Implement and simulate a 2D system composed of an E and an I population of neurons using the Wilson-Cowan model 神经元两类群体之间的相互作用
 Plot the frequency-current (F-I) curves for both populations
 Examine the behavior of the system using phase plane analysis, vector fields, and nullclines.
 Do you have more time? Have you finished early? We have more fun material for you!
@@ -320,3 +320,23 @@ If you need even more, there are two applications of the Wilson-Cowan model:
 
 Visualization of an Inhibition-stabilized network
 ==Simulation of working memory==
+WC模型方程的连接权重是什么？
+连接权重描述了神经元群体之间的相互连接强度。在Wilson-Cowan模型中，有助动连接权重和抑制连接权重，分别表示兴奋和抑制群体之间的交互。
+
+权重是如何作用在神经元上的？
+权重作用在神经元群体上，描述了一个群体对另一个群体的影响程度。在群体级别上，这些权重通常被视为统一的。
+
+模型的基本方程是怎么推导得到的？
+Wilson-Cowan模型是通过平均一群神经元的行为来得出的。方程结合了F-I曲线（频率-电流关系）、时间常数和连接权重来描述神经元群体的动态行为。
+
+关于阈值和增益的操纵的影响？
+通过改变阈值和增益，可以改变F-I曲线的形状，进而影响神经元的响应特性。这对于理解不同神经元类型和调节神经网络行为非常重要。
+
+Nullclines和相空间分析的作用是什么？
+Nullclines和相空间分析提供了一种理解多维系统动态行为的方法。通过分析和可视化空间轨迹和稳定点，可以深入了解神经元群体的响应。
+
+稳定点有什么意义？
+稳定点代表了系统的平衡状态，其中的变量不再随时间变化。它们有助于揭示系统可能达到的长期稳定状态。
+
+在section2.2中，绘制向量场，分析固定点让我们得到了什么结论？
+通过绘制向量场和分析固定点，我们可以识别系统的稳定和不稳定点，了解系统的全局动态行为，探索不同初始条件下的轨迹，以及了解系统对特定参数的敏感性。
